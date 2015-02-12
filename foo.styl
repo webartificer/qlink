@@ -1,0 +1,233 @@
+@import '_settings'
+@import 'jeet'
+
+// edit()
+
+*, *:before, *:after
+    box-sizing border-box
+
+html
+    height 100%
+
+body
+    background primary
+    font-family helvetica-neue
+    height 100%
+
+#overlay
+    width 100%
+    height 100%
+    background rgba(41, 128, 185,0.7)
+    z-index 10
+    position absolute
+    top 0
+    left 0
+    display none
+    align-items center
+    justify-content center
+
+header
+    height 50px
+    background offwhite
+    box-shadow 0 0 10px secondary
+
+    #logo
+        color primary
+        font-size 1.5em
+        font-weight 200
+        line-height 50px
+        background offwhite
+
+        &:before
+            content '\f097'
+            padding-right .2em
+            font-family FontAwesome
+
+article
+    padding-top 2em
+
+ul
+    margin 0
+    padding 0
+    center(100%)
+
+
+li
+    padding 0
+    margin 0
+    list-style none
+
+    div
+        white-space nowrap
+        overflow hidden
+        text-overflow ellipsis
+        background-color offwhite
+        border-radius 4px
+        height 100%
+        padding 3px 6px
+        position relative
+
+        a
+            text-decoration none
+            color slate
+            position absolute
+            height 100%
+            width 70%
+
+
+        &:hover
+            background primary
+
+            a
+                color white
+
+            span
+                color white
+
+        span
+            display block
+            white-space nowrap
+            overflow hidden
+            text-overflow ellipsis
+
+        .bookmark-status
+            position absolute
+            top 3px
+            left 5px
+
+        .bookmark-title
+            margin-left 12px
+            width 70%
+
+        .bookmark-url
+            color grey
+            font-size .75em
+            font-style italic
+
+        .bookmark-date
+            font-size: .75em
+            display none
+
+        .broken
+            color #ea4c89
+
+        .edit
+            font-family FontAwesome
+            opacity .5
+            position absolute
+            top 5px
+            right 5px
+            color white
+
+            &:hover
+                opacity 1
+
+
+
+
+.container
+    center(95%)
+    border-radius 4px
+    padding 0 1em
+
+.modal
+    width 90%
+    max-width 400px
+    margin auto
+    margin-top 0
+    margin-bottom 0
+
+    input
+        display block
+        width 100%
+        margin 1em 0
+
+    button
+        margin-top 1em
+
+.offwhite
+    background offwhite
+    padding-bottom .5em
+    margin-bottom 1em
+    box-shadow 0 0 10px secondary
+
+h1
+    font-weight 200
+    font-size 1.25em
+    padding-bottom .5em
+    border-bottom 1px solid ltsilver
+
+    &:before
+        content '\f097'
+        padding-right .2em
+        font-family FontAwesome
+        color primary
+
+form
+    margin-bottom .5em
+
+input
+    padding .5em
+    border-radius 4px
+    border solid 1px silver
+    outline none
+
+    &:focus
+        border-color primary
+
+    +below(600px)
+        display block
+        width 100%
+        margin 10px 0
+
+
+
+button
+    padding .5em
+    background-color primary
+    border none
+    border-radius 4px
+    color white
+    outline none
+
+    +below(600px)
+        display block
+        width 100%
+        margin 10px 0
+
+    &:hover
+        background negative
+
+.templates
+  display none
+
+// STYLES FOR ADJUSTABLE ELEMENTS
+
+.normal
+    span(1/6)
+    // height 40px
+    margin-bottom 6px
+    font-size .8em
+    transition all .5s ease
+    font-size 90%
+
+    +below(1000px)
+        span(1/5)
+
+
+    +below(800px)
+        span(1/4)
+
+
+    +below(600px)
+        span(1/3)
+        font-size 80%
+
+    +below(400px)
+        span(1/2)
+
+.tiny
+    span(1/7)
+
+.large
+    span(1/4)

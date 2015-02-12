@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>qLink - Midterm Project</title>
+    <link rel="stylesheet" type="text/css" href="http://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.1/normalize.min.css">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="foo.css">
+  </head>
+  <body>
+
+        <header>
+            <div class="container">
+                <div id="logo">qLink</div>
+            </div>
+        </header>
+        <article>
+
+
+        <div class="libraries"></div>
+
+
+        <!-- Here are all the templates, hidden at first -->
+        <ul class="templates">
+
+            <li id="bookmark-template" class="book normal">
+                <div>
+                    <a href="#" class="goto-url"></a>
+                    <span class="bookmark-title"></span>
+                    <span class="bookmark-url">bookmark url</span>
+                    <span class="bookmark-date">bookmark date</span>
+                    <span class="bookmark-status"></span>
+                    <span class="edit"><i class="fa fa-cog"></i></span>
+                </div>
+            </li>
+
+            <div id="category-template" class="library container offwhite">
+                <h1 class="cat-name">category name</h1>
+                <div class="books">books go here</div>
+            </div>
+
+
+
+        </ul>
+
+        <div class="container offwhite">
+            <h1>Add a Link</h1>
+            <form>
+                <input placeholder="Bookmark Name" id="name">
+                <input placeholder="Bookmark Url" id="url">
+                <button type="submit" class="submit">Add</button>
+            </form>
+
+        </div>
+
+
+    </article>
+
+    <div id="overlay">
+        <div class="container offwhite modal">
+            <div>
+                <h1>Edit Bookmark Details</h1>
+                <form>
+                    <input placeholder="Bookmark Name" id="name">
+                    <input placeholder="Bookmark Url" id="url">
+                    <button type="submit" class="save">Save</button>
+                    <button type="submit" class="cancel">Cancel</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<!-- <script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.7.0/underscore-min.js"></script> -->
+<script src="main.js"></script>
+
+  </body>
+</html>
