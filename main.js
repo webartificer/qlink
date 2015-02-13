@@ -144,29 +144,29 @@ Library.prototype.render = function() {
 
 
 // Library 1:
-var smashingMag = new Bookmark('Smashing Magazine', 'www.smashing.com', '12345', true);
+var smashingMag = new Bookmark('Smashing Magazine', 'www.smashingmagazine.com', '12345', true);
 var myCat1 = new Library('Category One');
 myCat1.addBookmark(smashingMag);
 
 // Library 2:
-var smashingMag = new Bookmark('Smashing Magazine', 'www.smashing.com', '12345', true);
+var smashingMag = new Bookmark('Smashing Magazine', 'www.smashingmagazine.com', '12345', true);
 var google = new Bookmark('Google', 'www.google.com', '12345', true);
 var refactoru = new Bookmark('Refactor U','www.refactoru.com','12345',true);
-var treehouse = new Bookmark('Treehouse', 'www.treehouse.com', '12345', true);
+var treehouse = new Bookmark('Treehouse', 'blog.teamtreehouse.com', '12345', true);
 var microsoft = new Bookmark('Microsoft', 'www.microsoft.com', '12345', false);
 var apple = new Bookmark('Apple','www.apple.com','12345',true);
-var godaddy = new Bookmark('Godaddy', 'www.smashing.com', '12345', true);
-var arcustech = new Bookmark('Arcustech', 'www.google.com', '12345', false);
-var name_com = new Bookmark('Name.com','www.refactoru.com','12345',true);
-var digitalocean = new Bookmark('Digital Ocean', 'www.treehouse.com', '12345', true);
-var heroku = new Bookmark('Heroku', 'www.microsoft.com', '12345', true);
-var mediatemple = new Bookmark('Media Temple','www.apple.com','12345',true);
-var alistapart = new Bookmark('A List Apart', 'www.smashing.com', '12345', true);
-var csstricks = new Bookmark('CSS Tricks', 'www.google.com', '12345', false);
-var codrops = new Bookmark('Codrpops','www.refactoru.com','12345',true);
-var designmodo = new Bookmark('Designmodo', 'www.treehouse.com', '12345', true);
-var webtuts = new Bookmark('Web Tuts', 'www.microsoft.com', '12345', true);
-var github = new Bookmark('Github','www.apple.com','12345',true);
+var godaddy = new Bookmark('Godaddy', 'www.godaddy.com', '12345', true);
+var arcustech = new Bookmark('Arcustech', 'www.arcustech.com', '12345', false);
+var name_com = new Bookmark('Name.com','www.name.com','12345',true);
+var digitalocean = new Bookmark('Digital Ocean', 'www.digitalocean.com', '12345', true);
+var heroku = new Bookmark('Heroku', 'www.heroku.com', '12345', true);
+var mediatemple = new Bookmark('Media Temple','www.mediatemple.com','12345',true);
+var alistapart = new Bookmark('A List Apart', 'alistapart.com', '12345', true);
+var csstricks = new Bookmark('CSS Tricks', 'css-tricks.com', '12345', false);
+var codrops = new Bookmark('Codrops','tympanus.net/codrops','12345',true);
+var designmodo = new Bookmark('Designmodo', 'www.designmodo.com', '12345', true);
+var webtuts = new Bookmark('Web Tuts', 'www.nettuts.com', '12345', true);
+var github = new Bookmark('Github','www.github.com','12345',true);
 var myCat2 = new Library('Category Two');
 myCat2.addBookmark(smashingMag, google, refactoru, treehouse, microsoft, apple, godaddy, arcustech, name_com, digitalocean,
     heroku, mediatemple, alistapart, csstricks, codrops, designmodo, webtuts, github);
@@ -216,7 +216,7 @@ $(document).on('ready', function(){
   setInterval(function () {
 
   var bookmarkcount = myCat2.bookmarks.length + myCat1.bookmarks.length;
-  $('.collapse').empty().append('<span class="linkcount"><i class="fa fa-check-circle"></i> ' + bookmarkcount + ' </span><span class="badlinks"><i class="fa fa-exclamation-triangle"></i> 3 <span class="collapse">URLs are unresponsive</span></span>');
+  $('.collapse').empty().append('<span class="linkcount"><i class="fa fa-check-circle"></i> ' + bookmarkcount + ' Valid Bookmarks</span><span class="badlinks"><i class="fa fa-exclamation-triangle"></i> 3 <span class="collapse">URLs are unresponsive</span></span>');
 }, 10);
 
 });
