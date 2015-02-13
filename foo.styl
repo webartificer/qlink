@@ -10,14 +10,16 @@ html
     height 100%
 
 body
-    background primary
     font-family helvetica-neue
     height 100%
+    font-color font-color
+    background offwhite
 
-#overlay
+
+#overlay_edit, #overlay_add
     width 100%
     height 100%
-    background rgba(41, 128, 185,0.7)
+    background rgba(41, 128, 185,1) url('img/dots.png') 50% 4px
     z-index 10
     position absolute
     top 0
@@ -28,23 +30,118 @@ body
 
 header
     height 50px
-    background offwhite
-    box-shadow 0 0 10px secondary
+    background primary
+    // box-shadow 0 0 10px secondary
 
     #logo
-        color primary
+        color white
         font-size 1.5em
         font-weight 200
         line-height 50px
-        background offwhite
+        font-weight 300
+        float left
 
         &:before
             content '\f097'
             padding-right .2em
             font-family FontAwesome
+            color rgba(255,255,255,.3)
+
+.padSearch
+    padding 0 0 5% 0
+
+
+#search
+    center(90%)
+    font-size 1.25em
+    position relative
+
+
+    .input-lg
+        line-height 45px
+        border-radius 5px
+        border solid 1px silver
+        width 100%
+        padding 0 20px 0 50px
+        outline none
+        box-shadow none
+        color dkgrey
+        font-size .9em
+        margin 0
+
+        &:focus
+            border solid 1px primary
+            outline none
+            box-shadow 0 0 8px primary
+
+
+
+    .input:before {
+        content "\f002"
+    }
+
+    label.magnify
+        position absolute
+        top 0
+        left 0
+        height 47px
+        padding 10px
+        width 45px
+        text-align center
+        border solid 1px primary
+        font-size 1em
+        color white
+        background primary
+        border-top-left-radius 4px
+        border-bottom-left-radius 4px
+
+
+
+nav, .addMark
+
+    float right
+    height 50px
+    z-index 20
+    line-height 50px
+    text-align right
+    min-width 50px
+
+
+    a
+        color primary
+        text-decoration none
+        padding .25em .4em
+        border-radius 4px
+
+
+        &:hover
+            background-color negative
+            border 1px solid negative
+            color white
+
+            span
+                display inline
+
+        i
+
+            +below(400px)
+                display inline
+
+
+        span
+            font-size .8em
+            padding 0 0 0 .5em
+            display none
+
+
+nav
+    a
+        color white
+        border-color white
 
 article
-    padding-top 2em
+    top 100px
+
 
 ul
     margin 0
@@ -61,7 +158,7 @@ li
         white-space nowrap
         overflow hidden
         text-overflow ellipsis
-        background-color offwhite
+        background-color transparent
         border-radius 4px
         height 100%
         padding 3px 6px
@@ -69,7 +166,7 @@ li
 
         a
             text-decoration none
-            color slate
+            color grey
             position absolute
             height 100%
             width 70%
@@ -84,11 +181,13 @@ li
             span
                 color white
 
+
         span
             display block
             white-space nowrap
             overflow hidden
             text-overflow ellipsis
+            color dkgrey
 
         .bookmark-status
             position absolute
@@ -117,7 +216,8 @@ li
             position absolute
             top 5px
             right 5px
-            color white
+            color offwhite
+            cursor pointer
 
             &:hover
                 opacity 1
@@ -126,42 +226,76 @@ li
 
 
 .container
-    center(95%)
-    border-radius 4px
-    padding 0 1em
+    center(90%)
+    min-width 300px
+    padding 0
+
+
 
 .modal
     width 90%
-    max-width 400px
+    max-width 500px
     margin auto
     margin-top 0
     margin-bottom 0
+    padding-bottom .5em
+    padding 1em
+    border-radius 4px
+    box-shadow 0 0 8px secondary
+
 
     input
         display block
         width 100%
         margin 1em 0
 
-    button
-        margin-top 1em
+
+
+    h4
+        border-top 1px solid silver
+        font-weight normal
+        padding 1em 0 0 0
+        margin 1em 0 0 0
+        text-align right
+
+        +below(480px)
+            text-align left
+
+        a
+            color primary
+            text-decoration none
+
+            &:hover
+                color negative
+
 
 .offwhite
     background offwhite
-    padding-bottom .5em
+    padding-bottom 1em
     margin-bottom 1em
-    box-shadow 0 0 10px secondary
+
 
 h1
     font-weight 200
     font-size 1.25em
-    padding-bottom .5em
-    border-bottom 1px solid ltsilver
+    border-bottom 1px solid silver
+    height 50px
+    line-height 50px
+    margin 0 0 1em 0
+    padding 0
 
     &:before
         content '\f097'
         padding-right .2em
         font-family FontAwesome
         color primary
+
+    &.addCat
+        &:before
+            content '\f067'
+
+.addMark
+    float right
 
 form
     margin-bottom .5em
@@ -175,7 +309,7 @@ input
     &:focus
         border-color primary
 
-    +below(600px)
+    +below(480px)
         display block
         width 100%
         margin 10px 0
@@ -190,16 +324,41 @@ button
     color white
     outline none
 
-    +below(600px)
+
+    +below(480px)
         display block
         width 100%
-        margin 10px 0
+        margin 10px 0 0 0
 
     &:hover
         background negative
 
 .templates
   display none
+
+.links
+    center(90%)
+    margin-top 3%
+    padding-bottom 1em
+    font-size .8em
+
+.linkcount
+    color primary
+    white-space nowrap
+    padding-right 20px
+    +below(480px)
+        display block
+
+.badlinks
+    color negative
+    white-space nowrap
+    +below(480px)
+        display block
+
+.collapse
+    display inline
+        +below(480px)
+            display none
 
 // STYLES FOR ADJUSTABLE ELEMENTS
 

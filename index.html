@@ -12,10 +12,23 @@
         <header>
             <div class="container">
                 <div id="logo">qLink</div>
+                <nav>
+                    <a href="#"><i class="fa fa-plus"></i><span>Add Category</span></a>
+                    <!-- <a href="#"><i class="fa fa-user"></i></a>   -->
+                </nav>
             </div>
         </header>
-        <article>
 
+
+        <article>
+        <section class="links">
+            <span class="collapse">Bookmarks Have Been Saved</span>
+        </section>
+        <section class="padSearch">
+            <div id="search">
+                <label for="search" class="magnify"><i class="fa fa-search"></i></label><input placeholder="Search Bookmarks" id="filter-by" class="input-lg" tabindex="1" name="search">
+            </div>
+        </section>
 
         <div class="libraries"></div>
 
@@ -35,6 +48,7 @@
             </li>
 
             <div id="category-template" class="library container offwhite">
+                <div class="addMark"><a href="#" class="addNewMark"><i class="fa fa-plus"></i><span>Add Bookmark</span></a></div>
                 <h1 class="cat-name">category name</h1>
                 <div class="books">books go here</div>
             </div>
@@ -43,35 +57,49 @@
 
         </ul>
 
-        <div class="container offwhite">
-            <h1>Add a Link</h1>
-            <form>
-                <input placeholder="Bookmark Name" id="name">
-                <input placeholder="Bookmark Url" id="url">
-                <button type="submit" class="submit">Add</button>
-            </form>
+<!--         <div class="container offwhite">
+    <h1 class="addCat">Add a Link</h1>
 
-        </div>
+        <input placeholder="Bookmark Name" id="name">
+        <input placeholder="Bookmark Url" id="url">
+        <button type="submit" class="submit">Add</button>
+
+
+</div> -->
 
 
     </article>
 
-    <div id="overlay">
+    <div id="overlay_add">
+        <div class="container offwhite modal">
+            <div>
+                <h1>Add New Bookmark</h1>
+
+                    <input placeholder="Bookmark Name" id="name">
+                    <input placeholder="Bookmark Url" id="url">
+                    <button type="submit" class="submit">Save</button>
+                    <button type="submit" class="cancel">Cancel</button>
+
+            </div>
+        </div>
+    </div>
+    <div id="overlay_edit">
         <div class="container offwhite modal">
             <div>
                 <h1>Edit Bookmark Details</h1>
-                <form>
-                    <input placeholder="Bookmark Name" id="name">
-                    <input placeholder="Bookmark Url" id="url">
-                    <button type="submit" class="save">Save</button>
-                    <button type="submit" class="cancel">Cancel</button>
-                </form>
+
+                <input placeholder="Bookmark Name" id="editname">
+                <input placeholder="Bookmark Url" id="editurl">
+                <button type="submit" class="submit">Save</button>
+                <button type="submit" class="cancel">Cancel</button>
+                <h4><a href="#"><i class="fa fa-times"></i> Trash this bookmark</a></h4>
+
             </div>
         </div>
     </div>
 
 <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-<!-- <script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.7.0/underscore-min.js"></script> -->
+<script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.7.0/underscore-min.js"></script>
 <script src="main.js"></script>
 
   </body>

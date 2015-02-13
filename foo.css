@@ -7,14 +7,16 @@ html {
   height: 100%;
 }
 body {
-  background: #2980b9;
   font-family: "Helvetica Neue", HelveticaNeue, Helvetica, Arial, sans-serif;
   height: 100%;
+  font-color: #555;
+  background: #fafafa;
 }
-#overlay {
+#overlay_edit,
+#overlay_add {
   width: 100%;
   height: 100%;
-  background: rgba(41,128,185,0.7);
+  background: #2980b9 url("img/dots.png") 50% 4px;
   z-index: 10;
   position: absolute;
   top: 0;
@@ -25,23 +27,125 @@ body {
 }
 header {
   height: 50px;
-  background: #fafafa;
-  box-shadow: 0 0 10px #014d73;
+  background: #2980b9;
 }
 header #logo {
-  color: #2980b9;
+  color: #fff;
   font-size: 1.5em;
   font-weight: 200;
   line-height: 50px;
-  background: #fafafa;
+  font-weight: 300;
+  float: left;
 }
 header #logo:before {
   content: '\f097';
   padding-right: 0.2em;
   font-family: FontAwesome;
+  color: rgba(255,255,255,0.3);
+}
+.padSearch {
+  padding: 0 0 5% 0;
+}
+#search {
+  *zoom: 1;
+  width: auto;
+  max-width: 90%;
+  float: none;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 0;
+  padding-right: 0;
+  font-size: 1.25em;
+  position: relative;
+}
+#search:before,
+#search:after {
+  content: '';
+  display: table;
+}
+#search:after {
+  clear: both;
+}
+#search .input-lg {
+  line-height: 45px;
+  border-radius: 5px;
+  border: solid 1px #ccc;
+  width: 100%;
+  padding: 0 20px 0 50px;
+  outline: none;
+  box-shadow: none;
+  color: #555;
+  font-size: 0.9em;
+  margin: 0;
+}
+#search .input-lg:focus {
+  border: solid 1px #2980b9;
+  outline: none;
+  box-shadow: 0 0 8px #2980b9;
+}
+#search .input:before {
+  content: "\f002";
+}
+#search label.magnify {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 47px;
+  padding: 10px;
+  width: 45px;
+  text-align: center;
+  border: solid 1px #2980b9;
+  font-size: 1em;
+  color: #fff;
+  background: #2980b9;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+nav,
+.addMark {
+  float: right;
+  height: 50px;
+  z-index: 20;
+  line-height: 50px;
+  text-align: right;
+  min-width: 50px;
+}
+nav a,
+.addMark a {
+  color: #2980b9;
+  text-decoration: none;
+  padding: 0.25em 0.4em;
+  border-radius: 4px;
+}
+nav a:hover,
+.addMark a:hover {
+  background-color: #ea4c89;
+  border: 1px solid #ea4c89;
+  color: #fff;
+}
+nav a:hover span,
+.addMark a:hover span {
+  display: inline;
+}
+@media only screen and (max-width: 400px) {
+  nav a i,
+  .addMark a i {
+    display: inline;
+  }
+}
+nav a span,
+.addMark a span {
+  font-size: 0.8em;
+  padding: 0 0 0 0.5em;
+  display: none;
+}
+nav a {
+  color: #fff;
+  border-color: #fff;
 }
 article {
-  padding-top: 2em;
+  top: 100px;
 }
 ul {
   margin: 0;
@@ -73,7 +177,7 @@ li div {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  background-color: #fafafa;
+  background-color: transparent;
   border-radius: 4px;
   height: 100%;
   padding: 3px 6px;
@@ -81,7 +185,7 @@ li div {
 }
 li div a {
   text-decoration: none;
-  color: #333;
+  color: #777;
   position: absolute;
   height: 100%;
   width: 70%;
@@ -100,6 +204,7 @@ li div span {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  color: #555;
 }
 li div .bookmark-status {
   position: absolute;
@@ -128,7 +233,8 @@ li div .edit {
   position: absolute;
   top: 5px;
   right: 5px;
-  color: #fff;
+  color: #fafafa;
+  cursor: pointer;
 }
 li div .edit:hover {
   opacity: 1;
@@ -136,15 +242,15 @@ li div .edit:hover {
 .container {
   *zoom: 1;
   width: auto;
-  max-width: 95%;
+  max-width: 90%;
   float: none;
   display: block;
   margin-right: auto;
   margin-left: auto;
   padding-left: 0;
   padding-right: 0;
-  border-radius: 4px;
-  padding: 0 1em;
+  min-width: 300px;
+  padding: 0;
 }
 .container:before,
 .container:after {
@@ -156,36 +262,64 @@ li div .edit:hover {
 }
 .modal {
   width: 90%;
-  max-width: 400px;
+  max-width: 500px;
   margin: auto;
   margin-top: 0;
   margin-bottom: 0;
+  padding-bottom: 0.5em;
+  padding: 1em;
+  border-radius: 4px;
+  box-shadow: 0 0 8px #014d73;
 }
 .modal input {
   display: block;
   width: 100%;
   margin: 1em 0;
 }
-.modal button {
-  margin-top: 1em;
+.modal h4 {
+  border-top: 1px solid #ccc;
+  font-weight: normal;
+  padding: 1em 0 0 0;
+  margin: 1em 0 0 0;
+  text-align: right;
+}
+@media only screen and (max-width: 480px) {
+  .modal h4 {
+    text-align: left;
+  }
+}
+.modal h4 a {
+  color: #2980b9;
+  text-decoration: none;
+}
+.modal h4 a:hover {
+  color: #ea4c89;
 }
 .offwhite {
   background: #fafafa;
-  padding-bottom: 0.5em;
+  padding-bottom: 1em;
   margin-bottom: 1em;
-  box-shadow: 0 0 10px #014d73;
 }
 h1 {
   font-weight: 200;
   font-size: 1.25em;
-  padding-bottom: 0.5em;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid #ccc;
+  height: 50px;
+  line-height: 50px;
+  margin: 0 0 1em 0;
+  padding: 0;
 }
 h1:before {
   content: '\f097';
   padding-right: 0.2em;
   font-family: FontAwesome;
   color: #2980b9;
+}
+h1.addCat:before {
+  content: '\f067';
+}
+.addMark {
+  float: right;
 }
 form {
   margin-bottom: 0.5em;
@@ -199,7 +333,7 @@ input {
 input:focus {
   border-color: #2980b9;
 }
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 480px) {
   input {
     display: block;
     width: 100%;
@@ -214,11 +348,11 @@ button {
   color: #fff;
   outline: none;
 }
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 480px) {
   button {
     display: block;
     width: 100%;
-    margin: 10px 0;
+    margin: 10px 0 0 0;
   }
 }
 button:hover {
@@ -226,6 +360,52 @@ button:hover {
 }
 .templates {
   display: none;
+}
+.links {
+  *zoom: 1;
+  width: auto;
+  max-width: 90%;
+  float: none;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 0;
+  padding-right: 0;
+  margin-top: 3%;
+  padding-bottom: 1em;
+  font-size: 0.8em;
+}
+.links:before,
+.links:after {
+  content: '';
+  display: table;
+}
+.links:after {
+  clear: both;
+}
+.linkcount {
+  color: #2980b9;
+  white-space: nowrap;
+  padding-right: 20px;
+}
+@media only screen and (max-width: 480px) {
+  .linkcount {
+    display: block;
+  }
+}
+.badlinks {
+  color: #ea4c89;
+  white-space: nowrap;
+}
+@media only screen and (max-width: 480px) {
+  .badlinks {
+    display: block;
+  }
+}
+@media only screen and (max-width: 480px) {
+  .collapse display inline {
+    display: none;
+  }
 }
 .normal {
   *zoom: 1;
